@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  app:
+    container_name: scala-akka-practice-app
+    build:
+      context: .
+      dockerfile: infra/docker/app/Dockerfile
+    image: scala-akka-practice/app:develop
+    ports:
+      - '80:80'
+    tty: true
