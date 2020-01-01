@@ -11,3 +11,5 @@ services:
     ports:
       - '80:80'
     tty: true
+    volumes:
+      - ./:/var/www/scala

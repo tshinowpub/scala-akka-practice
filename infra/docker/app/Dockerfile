@@ -4,6 +4,10 @@ FROM adoptopenjdk:$flavor as base
 
 LABEL maintainer="wayfarermusic0130@gmail.com"
 
+ENV CURRENT_DIR /var/www/scala
+
+WORKDIR $CURRENT_DIR
+
 #==========================================================================
 # Base
 #==========================================================================
@@ -11,7 +15,8 @@ RUN apt-get update \
     && apt-get install -y \
         curl \
         gnupg \
-        scala
+        scala \
+    && mkdir -p ${CURRENT_DIR}
 
 #==========================================================================
 # Develop
