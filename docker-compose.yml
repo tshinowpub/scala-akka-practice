@@ -6,6 +6,7 @@ services:
     build:
       context: .
       dockerfile: infra/docker/app/Dockerfile
+      target: develop
     image: scala-akka-practice/app:develop
     ports:
       - '80:80'
