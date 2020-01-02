@@ -4,7 +4,12 @@ FROM adoptopenjdk:$flavor as base
 
 LABEL maintainer="wayfarermusic0130@gmail.com"
 
+ARG scala=2.13.1
+ARG sbt=1.3.6
+
 ENV CURRENT_DIR /var/www/scala
+ENV SCALA_VERSION $scala
+ENV SBT_VERSION $sbt
 
 WORKDIR $CURRENT_DIR
 
@@ -15,17 +20,16 @@ RUN apt-get update \
     && apt-get install -y \
         curl \
         gnupg \
-        scala \
-    && mkdir -p ${CURRENT_DIR}
+        unzip \
+        wget \
+        zip \
+    && mkdir -p ${CURRENT_DIR} \
+    && curl -s "https://get.sdkman.io" | bash \
+    && /bin/bash -c "source ${HOME}/.sdkman/bin/sdkman-init.sh && sdk install scala ${SCALA_VERSION}"
 
 #==========================================================================
 # Develop
 #==========================================================================
 FROM base as develop
 
-RUN echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list \
-    && curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823" | apt-key add \
-    && apt-get update \
-    && apt-get install -y \
-        sbt \
-        vim
+RUN /bin/bash -c "source ${HOME}/.sdkman/bin/sdkman-init.sh && sdk install sbt ${SBT_VERSION}"
