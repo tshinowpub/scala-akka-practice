@@ -10,6 +10,7 @@ services:
     image: scala-akka-practice/app:develop
     ports:
       - '80:80'
+      - '9000:9000'
     tty: true
     volumes:
       - ./:/var/www/scala
