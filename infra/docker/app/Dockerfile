@@ -2,7 +2,7 @@ ARG flavor=8-jdk-hotspot
 
 FROM adoptopenjdk:$flavor as base
 
-LABEL maintainer="wayfarermusic0130@gmail.com"
+LABEL maintainer="tshinow@gmail.com"
 
 ARG scala=2.13.1
 ARG sbt=1.3.6
