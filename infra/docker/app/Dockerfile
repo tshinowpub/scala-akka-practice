@@ -33,3 +33,5 @@ RUN apt-get update \
 FROM base as develop
 
 RUN /bin/bash -c "source ${HOME}/.sdkman/bin/sdkman-init.sh && sdk install sbt ${SBT_VERSION}"
+
+EXPOSE 9000
