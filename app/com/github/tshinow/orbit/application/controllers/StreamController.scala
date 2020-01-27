@@ -19,6 +19,11 @@ class StreamController @Inject()(val controllerComponents: ControllerComponents)
    * a path of `/`.
    */
   def index(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Ok(Json.toJson(Seq("test1","test2","test3")))
+    val response = Seq(
+      Map("id" -> "1", "name" -> "test1"),
+      Map("id" -> "2", "name" -> "test2")
+    )
+
+    Ok(Json.toJson(response))
   }
 }
