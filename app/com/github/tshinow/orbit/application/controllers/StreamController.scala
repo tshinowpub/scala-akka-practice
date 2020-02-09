@@ -1,5 +1,7 @@
 package com.github.tshinow.orbit.application.controllers
 
+import com.github.tshinow.orbit.application.resources.StreamResource
+import com.github.tshinow.orbit.domain.value._
 import javax.inject._
 import play.api.libs.json.Json
 import play.api.mvc._
@@ -19,10 +21,21 @@ class StreamController @Inject()(val controllerComponents: ControllerComponents)
    * a path of `/`.
    */
   def index(): Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    val streamingService: StreamingService = Youtube
+
     val response = Seq(
-      Map("id" -> "1", "name" -> "test1"),
-      Map("id" -> "2", "name" -> "test2")
+      Map("id" -> "1", "name" -> "テストチャンネル", "streamingService" -> streamingService.value),
+      Map("id" -> "2", "name" -> "テストサブチャンネル", "streamingService" -> streamingService.value)
     )
+
+    val str = """
+    {
+      "id": "1",
+      "name": "Youtube"
+    }
+    """
+
+    //val stream: StreamResource = Json.parse(str).validate[StreamResource]
 
     Ok(Json.toJson(response))
   }
