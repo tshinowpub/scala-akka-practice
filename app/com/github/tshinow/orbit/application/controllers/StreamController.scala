@@ -1,7 +1,6 @@
 package com.github.tshinow.orbit.application.controllers
 
-import com.github.tshinow.orbit.application.resources.StreamResource
-import com.github.tshinow.orbit.domain.value._
+import com.github.tshinow.orbit.domain.model.{StreamingService, Youtube}
 import javax.inject._
 import play.api.libs.json.Json
 import play.api.mvc._
