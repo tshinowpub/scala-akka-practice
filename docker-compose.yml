@@ -14,3 +14,23 @@ services:
     tty: true
     volumes:
       - ./:/var/www/scala
+
+  elasticsearch:
+    container_name: scala-akka-practice-elasticsearch
+    image: elasticsearch:7.6.1
+    ports:
+      - '9200:9200'
+      - '9300:9300'
+    environment:
+      TZ: "Asia/Tokyo"
+      discovery.type: "single-node"
+
+  kibana:
+    container_name: scala-akka-practice-kibana
+    image: kibana:7.6.1
+    depends_on:
+      - elasticsearch
+    ports:
+      - '5601:5601'
+    environment:
+      TZ: "Asia/Tokyo"

@@ -12,6 +12,12 @@ Start Docker container.
 $ docker-compose up -d
 ```
 
+- Attention.   
+First launch, Kibana need a few minutes to started. 
+After you can access to dashboard.
+
+```http://{Your Docker IP}:5601```
+
 Into Docker application container.
 ```
 $ docker exec -it scala-akka-practice-app bash
