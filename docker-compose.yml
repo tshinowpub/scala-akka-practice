@@ -17,7 +17,10 @@ services:
 
   elasticsearch:
     container_name: scala-akka-practice-elasticsearch
-    image: elasticsearch:7.6.1
+    build:
+      context: .
+      dockerfile: infra/docker/elasticsearch/Dockerfile
+    image: scala-akka-practice/elasticsearch:develop
     ports:
       - '9200:9200'
       - '9300:9300'
