@@ -11,3 +11,5 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 
 GET     /streams                    com.github.tshinow.orbit.application.controllers.StreamController.index
+
+GET     /signup                     com.github.tshinow.orbit.application.controllers.auth.AuthenticationController.signup
