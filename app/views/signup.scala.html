@@ -1,3 +1,4 @@
+@(url: String)
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -6,5 +7,26 @@
     </head>
     <body>
         <h1>SignUp</h1>
+        <div>
+            <form action="@url" name="" method="POST">
+                <dl>
+                    <dt>アカウントID</dt>
+                    <dd>
+                        <label>
+                            <input type="text" name="account_id" value="">
+                        </label>
+                    </dd>
+                    <dt>パスワード</dt>
+                    <dd>
+                        <label>
+                            <input type="password" name="password" value="">
+                        </label>
+                    </dd>
+                </dl>
+            </form>
+            <div>
+                <input type="submit" name="submit" value="Submit">
+            </div>
+        </div>
     </body>
 </html>
