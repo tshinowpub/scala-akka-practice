@@ -12,6 +12,7 @@ libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0
 
 libraryDependencies += "com.typesafe.play" %% "play-json" % "2.8.1"
 libraryDependencies += "org.pac4j" %% "play-pac4j" % "10.0.1"
+libraryDependencies += "org.pac4j" % "pac4j-http" % "4.0.1"
 
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "com.example.controllers._"
